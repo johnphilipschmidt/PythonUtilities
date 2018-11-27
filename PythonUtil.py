@@ -5,13 +5,10 @@
 class PythonUtil:
     def __init__(self,name):
         self.name=name
-        mydict={
-            "name":"Utility",
-            "fileDirectory":"/tmp/"
-        }
+
 
     def fileOpenForRead(self,fileName):
-        fh = open(self.mydict("fileDirectory")+fileName, "r")
+        fh = open(fileName, "r")
         return fh
 
     def fileRead(self,fileHandle):
@@ -43,8 +40,14 @@ class PythonUtil:
         print "     3) openFileForAppend"
         print "     4) closeFile"
         return ""
+    def readMe(self):
+        print 'hello'
 
 #implmentation
 util=PythonUtil("util")
-util.featuresList()
+#util.featuresList()
+fh=util.fileOpenForRead("person.txt")
+for line in fh:
+    print line,
+fh.close()
 
